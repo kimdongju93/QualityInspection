@@ -1,7 +1,53 @@
-# AITEST Project
+# 작업자 감지 및 알람 시스템
 
-This is a test project for AI development and experimentation.
+CCTV를 이용하여 공장 내 특정 구역에 작업자가 진입할 경우 알람을 발생시키는 시스템입니다.
 
-## Getting Started
+## 주요 기능
 
-More information will be added as the project develops. 
+- 실시간 CCTV 영상 스트리밍
+- YOLOv8을 이용한 작업자 감지
+- 사용자 정의 관심 영역(ROI) 설정
+- 작업자 진입 시 시각/청각 알람
+
+## 설치 방법
+
+1. 필요한 패키지 설치:
+```bash
+pip install -r requirements.txt
+```
+
+2. YOLOv8 모델 다운로드:
+```bash
+# 자동으로 다운로드됩니다 (첫 실행 시)
+```
+
+3. 알람 소리 파일 준비:
+- `alarm.wav` 파일을 프로젝트 디렉토리에 복사
+
+## 사용 방법
+
+1. 프로그램 실행:
+```bash
+python worker_detection.py
+```
+
+2. ROI(관심 영역) 설정:
+- 'r' 키를 눌러 ROI 설정 모드 진입
+- 마우스로 4개의 점을 클릭하여 관심 영역 설정
+- 설정이 완료되면 자동으로 감지 모드로 전환
+
+3. 프로그램 종료:
+- 'q' 키를 눌러 프로그램 종료
+
+## 환경 설정
+
+`.env` 파일을 생성하여 카메라 URL을 설정할 수 있습니다:
+```
+CAMERA_URL=0  # 0은 기본 웹캠, IP 카메라의 경우 URL 입력
+```
+
+## 주의사항
+
+- 충분한 조명이 확보된 환경에서 사용하세요.
+- 카메라가 안정적으로 고정되어 있어야 합니다.
+- 알람 소리 파일이 올바른 형식이어야 합니다. 
